@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <section id="introduction">
+      <h1>drawImage() experiment</h1>
+      <p>
+        このページでは、<a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage"
+          ><code>drawImage</code></a
+        >の実行時間が、Chrome と Firefox
+        で異なる現象の原因を理解するための検証を行います。
+      </p>
+      <h3>参考リンク</h3>
+      <p>
+        この検証にあたっては、
+        <a
+          href="https://scrapbox.io/0202-animation/ctx.drawImage(video)%E3%81%8C%E3%81%AA%E3%81%9C%E9%87%8D%E3%81%8F%E3%81%AA%E3%82%8B%EF%BC%9F"
+          >Scrapbox上で考察を行いました</a
+        >
+        ので、併せてご覧ください。
+      </p>
+    </section>
+    <section id="content">
+      <ul>
+        <li>
+          <section class="experiment">
+            <h3>
+              1. 仮説「drawImageそのものの実行時間がChromeとFirefoxで異なる」
+            </h3>
+            <h4>詳細</h4>
+            <p>
+              <code>drawImage</code> に
+              <code>HTMLVideoElement</code>を渡すのが原因ではなく、
+              <code>drawImage</code
+              >そのものが速度低下の原因なのではないか、という考え。
+            </p>
+            <h4>実験方法</h4>
+            <p>
+              <a href="experiments/01/index.html">このページ</a
+              >をChrome、Firefoxそれぞれで実行する。
+            </p>
+          </section>
+        </li>
+        <li>
+          <section class="experiment">
+            <h3>
+              2.
+              Video要素を使ってdrawImageを実行すると、さらに速度に差があるのではないか
+            </h3>
+            <h4>詳細</h4>
+            <p>
+              1. の検証で、drawImage自体に速度の問題があると考えたが、
+              <code>drawImage</code> に
+              <code>HTMLVideoElement</code
+              >を渡した場合、さらに悪化するのではないか、と考える。
+            </p>
+            <h4>実験方法</h4>
+            <p>
+              <a href="experiments/02/index.html">このページ</a
+              >をChrome、Firefoxそれぞれで実行する。
+            </p>
+          </section>
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>
